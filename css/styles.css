@@ -1,0 +1,353 @@
+/* Global Styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: auto;
+  font-family: Arial, sans-serif;
+  background: #043A7B;
+}
+
+/* Background Video */
+video#bgVideo {
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  max-height: 70vh;
+  z-index: -1;
+  object-fit: cover;
+}
+
+/* Overlay Text */
+.overlay {
+  position: static;
+  transform: translate(-50%, -100%);
+  color: white;
+  text-align: center;
+  padding: 0 2em 15em 10em;
+  border-radius: 10px;
+  float: inline-end;
+}
+.overlay h1 {
+  margin: 0;
+  font-size: 3em;
+}
+.fw-bold {
+  font-weight: 700 !important;
+}
+
+.display-4 {
+  font-size: calc(1.475rem + 2.7vw);
+  font-weight: 300;
+  line-height: 1.2;
+}
+@media (min-width: 1200px) {
+  .display-4 {
+    font-size: 3.5rem;
+  }
+}
+
+/* Margin utility */
+.me-2 {
+  margin-inline-end: 0.5rem;
+}
+
+/* Button Styles */
+.button {
+  margin: 0;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  --border-right: 6px;
+  --text-stroke-color: rgba(255,255,255,0.6);
+  --animation-color: #cdb01d;
+  --fs-size: 2em;
+  letter-spacing: 3px;
+  font-size: var(--fs-size);
+  font-family: "Special Gothic Expanded One", sans-serif;
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--text-stroke-color);
+}
+
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s ease;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+
+.button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color));
+}
+
+/* Profile Image */
+.profile {
+  width: 34rem;
+  height: 36rem;
+  border-radius: 40px;
+  margin-top: 10em;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+.profile:hover {
+  filter: grayscale(0%);
+}
+
+/* About Section */
+#about-text {
+  padding-left: 15em;
+  margin-top: -22em;
+  color: #fffffff6;
+}
+#about-text h2 {
+  font-weight: 600;
+}
+#about-text h2 span {
+  color: #cdb01d;
+}
+
+/* Logo */
+.logo {
+  width: 1.5em;
+  height: 1.4em;
+  margin: 2em;
+}
+
+/* Download Button */
+.dbutton, .dbutton__icon, .dbutton__text {
+  transition: all 0.3s;
+}
+.dbutton {
+  position: relative;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 1px solid #17795E;
+  background-color: #209978;
+  overflow: hidden;
+}
+.dbutton .dbutton__text {
+  transform: translateX(22px);
+  color: #fff;
+  font-weight: 600;
+}
+.dbutton .dbutton__icon {
+  position: absolute;
+  transform: translateX(109px);
+  height: 100%;
+  width: 39px;
+  background-color: #17795E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dbutton .svg {
+  width: 20px;
+  fill: #fff;
+}
+
+.download {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  max-width: 1600px;
+  margin: 40px auto;
+  padding: 0 40px;
+}
+.timeline::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  margin: -2px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: #cdb01d;
+}
+
+.entry {
+  padding: 20px 30px;
+  position: relative;
+  width: 50%;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
+}
+.entry.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+.entry::before,
+.entry.right::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  background-color: #cdb01d;
+  border: 4px solid #074fa8;
+  border-radius: 50%;
+  z-index: 1;
+}
+.entry.left {
+  left: 0;
+}
+.entry.right {
+  left: 50%;
+}
+.entry.left::before {
+  left: 41.6em;
+}
+.entry.entry.right::before {
+  right: 41.6em;
+}
+.entry-content {
+  background-color: #074fa8;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid black;
+  position: relative;
+}
+
+/* Experience Section */
+.experience {
+  color: #cdb01d;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Project Info */
+h2 {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.6s ease-out;
+}
+h2.animate-heading {
+  opacity: 1;
+  transform: scale(1);
+}
+.project-title {
+  font-weight: bold;
+  color: #cdb01d;
+  margin-bottom: 8px;
+  font-size: large;
+}
+.project-date {
+  font-size: small;
+  color: #cdb01dda;
+  margin-bottom: 12px;
+}
+.project-description {
+  line-height: 1.6;
+  font-size: medium;
+}
+
+/* Hover Shadow */
+.hover-shadow {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.hover-shadow:hover {
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+/* Bubble Animation */
+.bubble {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: rgba(0, 123, 255, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: bubble-fade 0.6s ease-out forwards;
+  z-index: 9999;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+  mix-blend-mode: screen;
+}
+@keyframes bubble-fade {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.5);
+  }
+}
+
+/* ========== Responsive Queries ========== */
+
+/* Tablets and smaller */
+@media (max-width: 1024px) {
+  #about-text {
+    padding-left: 5em;
+    margin-top: -12em;
+  }
+  .profile {
+    width: 90%;
+    height: auto;
+    margin-top: 5em;
+  }
+  .overlay {
+    padding: 0 1em 10em 1em;
+    text-align: center;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+  .display-4 {
+    font-size: 2rem;
+  }
+
+  .entry {
+    width: 100%;
+    left: 0 !important;
+    padding: 10px 20px;
+  }
+  .timeline::after {
+    left: 20px;
+  }
+  .entry::before {
+    left: 10px !important;
+    right: auto !important;
+  }
+
+  #about-text {
+    padding-left: 1em;
+    margin-top: 1em;
+    text-align: center;
+  }
+
+  .button {
+    font-size: 1.2em;
+  }
+
+  .profile {
+    width: 100%;
+    margin-top: 3em;
+    border-radius: 20px;
+  }
+
+  .overlay h1 {
+    font-size: 2em;
+  }
+}
